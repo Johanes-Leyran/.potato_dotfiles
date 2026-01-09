@@ -1,0 +1,111 @@
+{
+	// TODO: do the music controls next and wifi modules
+	"layer": "top",
+	"position": "bottom",
+	"mode": "dock",
+	"height": 37,
+	"margin-left": 10,
+	"margin-right": 10,
+	"margin-bottom": 10,
+	"modules-left": [
+		"group/power-clock", 
+		"custom/separator", 
+		"group/hardware-stats"
+	],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["group/music"],
+	"clock": {
+		"format": "{:%a | %d, %b | %H:%M}"
+	},		
+	"group/power-clock": {
+		"orientation": "horizontal",
+		"modules": ["group/power", "clock"]
+	},
+	"group/hardware-stats": {
+		"orientation": "horizontal",
+		"modules": ["battery", "cpu", "memory"]
+	},
+	"group/music": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/waybar-scrolling-mpris",
+			"custom/cava"
+		]
+	},
+	"group/power": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 300,
+			"children-class": "not-power"
+		},
+		"modules": [
+			"custom/power",
+			"custom/quit",
+			"custom/lock", //not working
+			"custom/reboot"
+		]
+	},
+	"battery": {
+		"format": "{capacity}% {icon} ",
+		"format-icons": ["", "", "", "", ""],
+		"max-length": 25
+	},
+	"network": {
+		"format-wifi": "({signalStrength}%)  ",
+		"format-ethernet": "󰊗",
+		"format-disconnected": ""
+	},
+	"cpu": {
+		"interval": 10,
+		"format": "{usage}%  ",
+		"max-length": 9,
+		"min-length": 9
+	},
+	"memory": {
+		"interval": 30,
+		"format": "{}%  ",
+		"max-length": 10
+	},
+	"custom/waybar-scrolling-mpris": {
+		"format": "{}",
+		"display-format": "{icon} {artist} - {title}",
+		"exec": "~/.config/waybar/scripts/waybar-scrolling-mpris ~/.config/waybar/config.jsonc",
+		"max-length": 32,
+		"min-length": 32,
+		"align": 0,
+		"icons": {
+			"Paused": "⏸",
+			"Playing": "▶",
+			"Stopped": "■"
+		},
+		"length": 30
+	},
+    "custom/cava": {
+    	"format": "| {} |",
+    	"exec": "~/.config/waybar/scripts/cava.sh"
+    },
+	"custom/separator": {
+		"format": " "
+	},
+	"custom/quit": {
+		"format": "󰗼",
+		"tooltip": false,
+		"on-click": "hyprctl dispatch exit"
+	},
+	"custom/lock": {
+		"format": "󰍁",
+		"tooltip": false,
+		"on-click": "sddm logout"
+	},
+	"custom/reboot": {
+		"format": "󰜉",
+		"tooltip": false,
+		"on-click": "reboot"
+	},
+	"custom/power": {
+		"format": " ",
+		"tooltip": false,
+		"on-click": "shutdown now"
+	}
+}
+
