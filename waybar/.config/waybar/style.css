@@ -7,7 +7,7 @@
     border-radius: 0;
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     min-height: 0;
 }
 
@@ -16,11 +16,20 @@ window#waybar {
     color: @sec;
     margin-bottom: 10px;
     padding-top: 10px;
-    border: 2.5px solid @sec;
+    border: 4px solid @sec;
 }
 
-window#waybar, #power {
-    border-radius: 8px;
+window#waybar {
+    /* 
+        make sure to have a higher border radius than the modules 
+        that are located in the corners of the bar to avoid tiny pixels
+        overflowing
+    */
+    border-radius: 10px; 
+}
+
+#power, #custom-cava {
+    border-radius: 8px; /* must be below the border radius of the waybar */
 }
 
 #power {
@@ -33,14 +42,13 @@ window#waybar, #power {
     min-width: 25px;
     padding: 5px;
     transition: 0.15s; 
-    /* big brain move without this, changing the active buttons would wobble the rest */
-    border: 2.5px solid transparent;
+    /* without this changing the active buttons would wobble the rest */
+    border: 3px solid transparent;
     color: @sec;
 }
 
 #workspaces button.active{
-    border-radius: 10px;
-    border: 2.5px solid @sec;
+    border: 3px solid @sec;
 }
 
 #power {
@@ -48,16 +56,6 @@ window#waybar, #power {
     margin-right: 20px;
     background: @sec;
     color: @prim;
-}
-
-#music {
-    margin-right: 15px;
-}
-
-@keyframes clocking {
-    50% {
-        opacity: 0;
-    }
 }
 
 #cpu{
@@ -84,12 +82,22 @@ window#waybar, #power {
     animation-direction: alternate;
 }
 
+#custom-waybar-scrolling-mpris {
+    margin-left: 15px;
+    letter-spacing: 1px;
+}
+
 #custom-cava {
+    color: @prim;
+    background: @sec;
     letter-spacing: 3px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: 18px;
 }
 
 #custom-separator {
-    border-right: 2px solid @sec;
+    border-right: 3px solid @sec;
     margin-left: 5px;
     margin-right: 15px;
 }
@@ -100,11 +108,16 @@ window#waybar, #power {
 
 #custom-quit, #custom-lock, #custom-reboot {
     padding-left: 17px;
-    padding-right: 17px;
+    padding-right: 20px;
 }
 
 #custom-power {
     font-size: 16px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 15px;
+}
+
+#custom-opening-bracket, #custom-closing-bracket {
+    font-size: 20px;
+    margin-bottom: 5px;
 }

@@ -28,7 +28,9 @@
 	"group/music": {
 		"orientation": "horizontal",
 		"modules": [
+			"custom/opening-bracket",
 			"custom/waybar-scrolling-mpris",
+			"custom/closing-bracket",
 			"custom/cava"
 		]
 	},
@@ -41,7 +43,7 @@
 		"modules": [
 			"custom/power",
 			"custom/quit",
-			"custom/lock", //not working
+			"custom/lock", //not working, not yet implemented
 			"custom/reboot"
 		]
 	},
@@ -68,17 +70,17 @@
 	},
 	"custom/waybar-scrolling-mpris": {
 		"format": "{}",
-		"display-format": "{icon} {artist} - {title}",
+		"display-format": "{icon} {artist} - {title} ]",
 		"exec": "~/.config/waybar/scripts/waybar-scrolling-mpris ~/.config/waybar/config.jsonc",
-		"max-length": 32,
-		"min-length": 32,
+		"max-length": 30,
+		"min-length": 30,
 		"align": 0,
 		"icons": {
 			"Paused": "⏸",
 			"Playing": "▶",
-			"Stopped": "■"
+			"Stopped": "■      No Media Playing"
 		},
-		"length": 30
+		"length": 28
 	},
     "custom/cava": {
     	"format": "| {} |",
@@ -86,6 +88,12 @@
     },
 	"custom/separator": {
 		"format": " "
+	},
+	"custom/opening-bracket": {
+		"format": "["
+	},
+	"custom/closing-bracket": {
+		"format": "]"
 	},
 	"custom/quit": {
 		"format": "󰗼",
@@ -103,7 +111,7 @@
 		"on-click": "reboot"
 	},
 	"custom/power": {
-		"format": " ",
+		"format": " ", // lazy way to fix icon not fulling showing, I know
 		"tooltip": false,
 		"on-click": "shutdown now"
 	}
