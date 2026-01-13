@@ -1,5 +1,5 @@
 {
-	// TODO: do the music controls next and wifi modules
+	// TODO: add music and wifi modules 
 	"layer": "top",
 	"position": "bottom",
 	"mode": "dock",
@@ -43,7 +43,8 @@
 		"modules": [
 			"custom/power",
 			"custom/quit",
-			"custom/lock", //not working, not yet implemented
+			//not working, not yet implemented or probably not will be
+			"custom/lock", 
 			"custom/reboot"
 		]
 	},
@@ -52,7 +53,7 @@
 		"format-icons": ["", "", "", "", ""],
 		"max-length": 25
 	},
-	"network": {
+	"2network": {
 		"format-wifi": "({signalStrength}%)  ",
 		"format-ethernet": "󰊗",
 		"format-disconnected": ""
@@ -72,15 +73,18 @@
 		"format": "{}",
 		"display-format": "{icon} {artist} - {title} ]",
 		"exec": "~/.config/waybar/scripts/waybar-scrolling-mpris ~/.config/waybar/config.jsonc",
-		"max-length": 30,
-		"min-length": 30,
+		"max-length": 27,
+		"min-length": 27,
 		"align": 0,
 		"icons": {
-			"Paused": "⏸",
+			"Paused": "⏸ ",
 			"Playing": "▶",
+			// lazy, I know...
 			"Stopped": "■      No Media Playing"
 		},
-		"length": 28
+		// must be below 2 than the min-max length to avoid ellipses at the end
+		// min-max length are set to avoid padding problems on special characters
+		"length": 25 
 	},
     "custom/cava": {
     	"format": "| {} |",

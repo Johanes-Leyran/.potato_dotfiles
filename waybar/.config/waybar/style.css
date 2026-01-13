@@ -1,7 +1,7 @@
-@define-color prim #F0E4D3;
-@define-color sec #17313E;
+@define-color prim #F5FBE6;
+@define-color sec #1B211A;
 
-
+/* todo: make spacing in modules a less pain in the goddam ass */
 * {
     border: none;
     border-radius: 0;
@@ -38,6 +38,10 @@ window#waybar {
     border-bottom: 2px solid @sec;
 }
 
+#hardware-stats {
+    margin-left: 5px;
+}
+
 #workspaces button {
     min-width: 25px;
     padding: 5px;
@@ -56,6 +60,10 @@ window#waybar {
     margin-right: 20px;
     background: @sec;
     color: @prim;
+}
+
+#power-clock {
+    margin-right: 8px;
 }
 
 #cpu{
@@ -83,7 +91,8 @@ window#waybar {
 }
 
 #custom-waybar-scrolling-mpris {
-    margin-left: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
     letter-spacing: 1px;
 }
 
@@ -93,7 +102,7 @@ window#waybar {
     letter-spacing: 3px;
     padding-right: 15px;
     padding-left: 15px;
-    margin-left: 18px;
+    margin-left: 10px;
 }
 
 #custom-separator {
