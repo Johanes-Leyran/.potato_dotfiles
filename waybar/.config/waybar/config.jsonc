@@ -30,8 +30,8 @@
 		"modules": [
 			"custom/opening-bracket",
 			"custom/waybar-scrolling-mpris",
-			"custom/closing-bracket",
-			"custom/cava"
+			"custom/cava",
+			"custom/closing-bracket"
 		]
 	},
 	"group/power": {
@@ -79,7 +79,7 @@
 		"icons": {
 			"Paused": "⏸ ",
 			"Playing": "▶",
-			// lazy, I know...
+			// lazy method but works
 			"Stopped": "■     No Media Playing"
 		},
 		// must be below 2 than the min-max length to avoid ellipses at the end
@@ -87,7 +87,7 @@
 		"length": 25 
 	},
     "custom/cava": {
-    	"format": "| {} |",
+    	"format": "| {}",
     	"exec": "~/.config/waybar/scripts/cava.sh"
     },
 	"custom/separator": {
@@ -115,8 +115,9 @@
 		"on-click": "reboot"
 	},
 	"custom/power": {
-		"format": " ", // lazy way to fix icon not fulling showing, I know
 		"tooltip": false,
+		// another lazy way to fix icon not fulling showing
+		"format": " ", 
 		"on-click": "shutdown now"
 	}
 }
