@@ -80,7 +80,7 @@
 			"Paused": "⏸ ",
 			"Playing": "▶",
 			// lazy, I know...
-			"Stopped": "■      No Media Playing"
+			"Stopped": "■     No Media Playing"
 		},
 		// must be below 2 than the min-max length to avoid ellipses at the end
 		// min-max length are set to avoid padding problems on special characters
